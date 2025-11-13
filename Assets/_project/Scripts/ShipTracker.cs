@@ -8,9 +8,12 @@ public class ShipTracker : MonoBehaviour
 
     private void LateUpdate()
     {
-        var position = transform.position;
-        position.x = _ship.transform.position.x + _xOffset;
-        transform.position = position;
+        if (_ship != null)
+        {
+            var position = transform.position;
+            position.x = _ship.transform.position.x + _xOffset;
+            transform.position = position;
+        }
     }
 
     public void Initialize(Ship ship)
