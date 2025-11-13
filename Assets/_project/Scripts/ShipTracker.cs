@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ShipTracker : MonoBehaviour
 {
-    private Ship _ship;
-
     [SerializeField] private float _xOffset;
+
+    private Ship _ship;
 
     private void LateUpdate()
     {

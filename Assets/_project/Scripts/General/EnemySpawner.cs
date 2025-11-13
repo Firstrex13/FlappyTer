@@ -26,9 +26,23 @@ public class EnemySpawner : MonoBehaviour
         {
             Enemy enemy = _pool.GetFromPool();
             enemy.Initialize(_spawnPosition.position);
-            Health health = enemy.GetComponent<Health>();
-            health.Initialize();
-            yield return delay;
+
+            if (enemy.TryGetComponent<Health>(out Health health))
+            {
+                health.Initialize();
+                health.Died += ReturnToPool;
+                yield return delay;
+            }
+        }
+    }
+
+    private void ReturnToPool(GameObject enemyHealth)
+    {
+        if (enemyHealth.TryGetComponent<Health>(out Health health))
+        {
+            if(enemyHealth.TryGetComponent<Enemy>(out Enemy enemy))
+            _pool.ReturnObject(enemy);
+            health.Died -= ReturnToPool;
         }
     }
 }

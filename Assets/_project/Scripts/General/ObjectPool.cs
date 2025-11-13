@@ -13,7 +13,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            _pool.Enqueue(fillUpPool());
+            _pool.Enqueue(FillUpPool());
         }
     }
 
@@ -38,7 +38,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         _pool.Enqueue(obj);
     }
 
-    private T fillUpPool()
+    private T FillUpPool()
     {
         T obj = Object.Instantiate(_prefab);
         obj.gameObject.SetActive(false);

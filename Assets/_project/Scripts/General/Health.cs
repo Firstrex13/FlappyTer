@@ -37,7 +37,6 @@ public class Health : MonoBehaviour
                     _currentValue = 0;
 
                     Died?.Invoke(gameObject);
-
                 }
 
                 Hit?.Invoke();

@@ -16,12 +16,14 @@ public class Bullet : MonoBehaviour
         _direction = direction;
         _startPosition = startPosition;
         _speed = speed;
-    }
-
-    private void Start()
-    {
         transform.position = _startPosition;
     }
+
+    
+    //private void Start()
+    //{
+    //    transform.position = _startPosition;
+    //}
 
     private void Update()
     {
